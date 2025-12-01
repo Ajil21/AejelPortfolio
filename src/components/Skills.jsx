@@ -32,11 +32,7 @@ const Skills = () => {
         { name: "English (Fluent)", percent: 100 },
         { name: "Malayalam (Native)", percent: 100 },
         { name: "Hindi", percent: 69 },
-<<<<<<< HEAD
-        { name: "German (A2)", percent: 47 }
-=======
         { name: "German (A2)", percent: 48 }
->>>>>>> e4243fb (Fix package name case and other final edits)
     ];
 
     const softSkills = [
