@@ -54,7 +54,7 @@ const Projects = () => {
     return (
         <section className="container" style={{ padding: '150px 20px' }}>
             <h3 className="cinematic-text" style={{ marginBottom: '60px', display: 'flex', alignItems: 'center', gap: '20px' }}>
-                <span style={{ fontSize: '1.5rem', color: 'var(--color-primary)', fontFamily: 'var(--font-pixel)' }}>04.</span>
+
                 PROJECTS
             </h3>
 

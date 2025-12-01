@@ -11,15 +11,14 @@ const About = () => {
                     {/* Removed "PROFILE" header as requested */}
                     <ScrollHighlightText>
                         <p style={{ fontSize: '2rem', lineHeight: '1.4', fontWeight: '300' }}>
-                            “21 year old.
-                            I like creating stuff, tweaking existing tech. In my free time I game, ball and inhale music. Trying to be something!”
+                            “21 year old.I like creating stuff, tweaking existing tech. In my free time I game, ball and inhale music. Trying to be something!”
                         </p>
                     </ScrollHighlightText>
                 </div>
 
                 <div>
                     <h3 className="cinematic-text" style={{ marginBottom: '40px', display: 'flex', alignItems: 'center', gap: '20px', justifyContent: 'center' }}>
-                        <span style={{ fontSize: '1.5rem', color: 'var(--color-primary)', fontFamily: 'var(--font-pixel)' }}>01.</span>
+
                         EDUCATION
                     </h3>
 

@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from 'framer-motion';
 import { FaLaptop, FaMobileAlt, FaGamepad, FaKeyboard, FaMouse } from 'react-icons/fa';
+import heroPortrait from '../assets/hero-portrait.png';
 
 const FloatingIcon = ({ icon: Icon, initialX, initialY, delay }) => {
     const x = useMotionValue(0);
@@ -74,24 +75,13 @@ const Hero = () => {
             height: '100vh',
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: 'center',
+            justifyContent: 'flex-end', // Push content to bottom
             alignItems: 'center',
             position: 'relative',
             overflow: 'hidden',
-            perspective: '1000px'
+            perspective: '1000px',
+            paddingBottom: '12vh' // Lowered text slightly
         }}>
-            {/* Parallax Background Grid */}
-            <motion.div style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                backgroundImage: 'linear-gradient(rgba(57, 255, 20, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(57, 255, 20, 0.03) 1px, transparent 1px)',
-                backgroundSize: '80px 80px',
-                zIndex: -1,
-                y: y
-            }} />
 
             {/* Floating Vector Elements */}
             <FloatingIcon icon={FaLaptop} initialX="15%" initialY="20%" delay={0.2} />
@@ -106,13 +96,36 @@ const Hero = () => {
                 transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
                 style={{ textAlign: 'center', zIndex: 1, maxWidth: '90%' }}
             >
+                {/* Hero Portrait */}
+                <motion.img
+                    src={heroPortrait}
+                    alt="Aejel Varghese Babu"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2, duration: 0.8 }}
+                    style={{
+                        width: '100%',
+                        maxWidth: '350px', // Responsive width
+                        height: 'auto',
+                        marginBottom: '-80px', // Pull closer to text (move down relative to text)
+                        display: 'block',
+                        marginLeft: 'auto',
+                        marginRight: 'auto',
+                        filter: 'grayscale(100%) contrast(1.2)', // Match aesthetic
+                        position: 'relative',
+                        zIndex: 0
+                    }}
+                />
+
                 <motion.h1
-                    className="pixel-font" // Reverted to pixel font
+                    className="pixel-font"
                     style={{
                         fontSize: 'clamp(3rem, 8vw, 6rem)',
                         marginBottom: '1rem',
                         color: 'var(--color-text)',
-                        textShadow: '4px 4px 0px var(--color-primary)'
+                        textShadow: '4px 4px 0px var(--color-primary)',
+                        position: 'relative',
+                        zIndex: 1 // Ensure text is on top of image
                     }}
                 >
                     AEJEL VARGHESE BABU
