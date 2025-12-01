@@ -31,8 +31,8 @@ const Skills = () => {
     const verbalLanguages = [
         { name: "English (Fluent)", percent: 100 },
         { name: "Malayalam (Native)", percent: 100 },
-        { name: "Hindi", percent: 80 },
-        { name: "German (A2)", percent: 40 }
+        { name: "Hindi", percent: 69 },
+        { name: "German (A2)", percent: 76 }
     ];
 
     const softSkills = [
