@@ -32,7 +32,7 @@ const Skills = () => {
         { name: "English (Fluent)", percent: 100 },
         { name: "Malayalam (Native)", percent: 100 },
         { name: "Hindi", percent: 69 },
-        { name: "German (A2)", percent: 76 }
+        { name: "German (A2)", percent: 47 }
     ];
 
     const softSkills = [
