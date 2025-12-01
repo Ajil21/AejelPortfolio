@@ -69,6 +69,14 @@ const FloatingIcon = ({ icon: Icon, initialX, initialY, delay }) => {
 const Hero = () => {
     const { scrollY } = useScroll();
     const y = useTransform(scrollY, [0, 500], [0, 200]);
+    const [isMobile, setIsMobile] = React.useState(false);
+
+    React.useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
     return (
         <section style={{
@@ -83,12 +91,16 @@ const Hero = () => {
             paddingBottom: '12vh' // Lowered text slightly
         }}>
 
-            {/* Floating Vector Elements */}
-            <FloatingIcon icon={FaLaptop} initialX="15%" initialY="20%" delay={0.2} />
-            <FloatingIcon icon={FaMobileAlt} initialX="80%" initialY="25%" delay={0.4} />
-            <FloatingIcon icon={FaGamepad} initialX="20%" initialY="70%" delay={0.6} />
-            <FloatingIcon icon={FaKeyboard} initialX="75%" initialY="65%" delay={0.8} />
-            <FloatingIcon icon={FaMouse} initialX="50%" initialY="85%" delay={1.0} />
+            {/* Floating Vector Elements - Responsive Positioning */}
+            {/* Laptop: Top Left */}
+            <FloatingIcon icon={FaLaptop} initialX={isMobile ? "5%" : "15%"} initialY={isMobile ? "15%" : "20%"} delay={0.2} />
+            {/* Mobile: Top Right */}
+            <FloatingIcon icon={FaMobileAlt} initialX={isMobile ? "85%" : "80%"} initialY={isMobile ? "15%" : "25%"} delay={0.4} />
+            {/* Gamepad: Bottom Left */}
+            <FloatingIcon icon={FaGamepad} initialX={isMobile ? "5%" : "20%"} initialY={isMobile ? "60%" : "70%"} delay={0.6} />
+            {/* Keyboard: Bottom Right */}
+            <FloatingIcon icon={FaKeyboard} initialX={isMobile ? "85%" : "75%"} initialY={isMobile ? "55%" : "65%"} delay={0.8} />
+
 
             <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -105,7 +117,7 @@ const Hero = () => {
                     transition={{ delay: 0.2, duration: 0.8 }}
                     style={{
                         width: '100%',
-                        maxWidth: '350px', // Responsive width
+                        maxWidth: isMobile ? '280px' : '350px', // Responsive width: smaller on mobile
                         height: 'auto',
                         marginBottom: '-80px', // Pull closer to text (move down relative to text)
                         display: 'block',

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaPhoneAlt, FaLinkedin, FaGithub, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaPhoneSquareAlt, FaLinkedin, FaGithub, FaMapMarkerAlt, FaMouse } from 'react-icons/fa';
 
 const ClickableIcon = ({ icon: Icon, link, color = "var(--color-primary)" }) => {
     return (
@@ -20,7 +20,7 @@ const ClickableIcon = ({ icon: Icon, link, color = "var(--color-primary)" }) => 
                 textDecoration: 'none'
             }}
         >
-            <Icon size={40} />
+            <Icon size={50} />
         </motion.a>
     );
 };
@@ -37,6 +37,17 @@ const Contact = () => {
                     <h3 className="cinematic-text" style={{ fontSize: '4rem', marginBottom: '30px', lineHeight: '1' }}>
                         Let's Build Something <br />
                         <span style={{ color: 'var(--color-primary)' }}>Awesome</span>
+                        <motion.span
+                            animate={{ y: [0, -10, 0] }}
+                            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                            style={{
+                                display: 'inline-block',
+                                marginLeft: '20px',
+                                verticalAlign: 'middle'
+                            }}
+                        >
+                            <FaMouse size={40} color="var(--color-primary)" />
+                        </motion.span>
                     </h3>
                     <p style={{ color: 'var(--color-text-muted)', maxWidth: '600px', margin: '0 auto 50px', fontSize: '1.4rem' }}>
                         I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
@@ -70,7 +81,7 @@ const Contact = () => {
                         flexWrap: 'wrap',
                         alignItems: 'center'
                     }}>
-                        <ClickableIcon icon={FaPhoneAlt} link="tel:+919072608153" />
+                        <ClickableIcon icon={FaPhoneSquareAlt} link="tel:+919072608153" />
                         <ClickableIcon icon={FaLinkedin} link="https://linkedin.com/in/aejel-dev" />
                         <ClickableIcon icon={FaGithub} link="https://github.com/Ajil21" />
                     </div>
