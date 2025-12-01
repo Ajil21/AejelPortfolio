@@ -113,8 +113,15 @@ const Hero = () => {
                         marginRight: 'auto',
                         filter: 'grayscale(100%) contrast(1.2)', // Match aesthetic
                         position: 'relative',
-                        zIndex: 0
+                        zIndex: 0,
+                        pointerEvents: 'none', // Disable all interactions
+                        userSelect: 'none', // Disable selection
+                        WebkitUserSelect: 'none',
+                        MozUserSelect: 'none',
+                        msUserSelect: 'none'
                     }}
+                    onContextMenu={(e) => e.preventDefault()} // Disable right-click
+                    draggable="false" // Disable drag
                 />
 
                 <motion.h1
