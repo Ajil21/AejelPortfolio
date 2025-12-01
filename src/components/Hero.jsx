@@ -152,9 +152,9 @@ const Hero = () => {
                         fontFamily: 'var(--font-pixel)'
                     }}
                 >
-                    <span>ENGINEER</span>
-                    <span style={{ color: 'var(--color-primary)' }}>//</span>
                     <span>CREATIVE</span>
+                    <span style={{ color: 'var(--color-primary)' }}>//</span>
+                    <span>ENGINEER</span>
                 </motion.div>
 
                 <motion.div
